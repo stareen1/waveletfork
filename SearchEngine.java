@@ -23,10 +23,13 @@ class Handler implements URLHandler {
              if (url.getPath().contains("/search")) {
                 String[] parameters = url.getQuery().split("=");
                 if (parameters[0].equals("s")) {
+                    String matchedStrings = "";
                     for (int i = 0; i < stringList.size(); i++) {
-                      currentString = currentString + stringList.get(i);
+                      if stringList.get(i).contains(parameters[1]) {
+                        matchedStrings = matchedStrings + " " + stringList.get(i) + " ";
+                      }
                     }
-                    return "";
+                    return "These strings have the substring: " + parameters[1] + ":" + matchedStrings;
                 }
             }
             return "404 Not Found!";
