@@ -10,7 +10,7 @@ class Handler implements URLHandler {
         if (url.getPath().equals("/")) {
             String currentString = "";
             for (int i = 0; i < stringList.size(); i++) {
-              currentString = currentString + stringList.get(i);
+              currentString = currentString + " " + stringList.get(i);
             }
             return currentString;
         } else {
